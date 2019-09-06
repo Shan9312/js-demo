@@ -32,4 +32,4 @@ console.log(str2 instanceof String) // true
 // 使用方法三 constructor [undefined和null没有contructor属性]
 
 let str3 = 'jj';
-console.log(str3.construct)
+console.log(str3.construct);
