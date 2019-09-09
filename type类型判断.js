@@ -7,13 +7,13 @@
 
 let str = 'test'
 let bool = true;
-let fun = function () {
-  console.log('this is my siter');
+let fun = function() {
+    console.log('this is my siter');
 }
 let unde = undefined;
 let arr = [1, 3, 4];
 let nul = null
-console.log(typeof (str), typeof (bool), typeof (fun), typeof (unde), typeof (arr), typeof (nul));
+console.log(typeof(str), typeof(bool), typeof(fun), typeof(unde), typeof(arr), typeof(nul));
 //答案：  string boolean function undefined object object
 
 // 方法二 instanceof
@@ -23,7 +23,7 @@ let str1 = 'www'
 let arr1 = [2, 6]
 let null1 = null;
 let obj1 = {
-  name: 'jj'
+    name: 'jj'
 }
 let str2 = new String();
 console.log(str1 instanceof String) // false
@@ -32,4 +32,4 @@ console.log(str2 instanceof String) // true
 // 使用方法三 constructor [undefined和null没有contructor属性]
 
 let str3 = 'jj';
-console.log(str3.construct);
+console.log(str3.constructor); // [Function: String]

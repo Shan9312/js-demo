@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div>
+        <input type="text" id='inp'>
+        <div class="box">
+        </div>
+    </div>
+    <script>
+        // 防抖：触发高频事件后n秒内，函数只执行一次，如果n秒内高频事件再次触发，则重新计算时间
+        // 动作绑定事件，动作发生后一定时间后触发事件，在这段时间内，如果该动作又发生，则重新等待一定时间再触发事件。
+        // 案例： 在input输入框是去请求接口
+        function debounce(fn) {
+            let timeout = null;
+            return function() {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    fn.apply(this, arguments); // 这里的this,不绑定也OK，为啥要改变this???
+                }, 500)
+            }
+        }
+
+        function sayHi() {
+            console.log('防抖成功');
+        }
+        var inp = document.getElementById('inp');
+        inp.addEventListener('input', debounce(sayHi)); // 防抖
+
+
+        // 节流：动作绑定事件，动作发生后一段时间后触发事件，在这段时间内，如果动作又发生，则无视该动作，直到事件执行完后，才能重新触发。
+        // 高频事件触发，但在n秒内只会执行一次，所以节流会稀释函数的执行频率
+        // 案例： 滚动条滑动去请求图片
+        function throttle(fn) {
+            let canRan = true;
+            return function() {
+                if (!canRan) return;
+                canRan = false;
+                setTimeout(() => {
+                    fn.apply(this, arguments);
+                    canRan = true;
+                }, 500)
+            }
+        }
+
+        function sayHL(e) {
+            console.log(e.target.innerWidth, e.target.innerHeight);
+        }
+        window.addEventListener('resize', throttle(sayHL)); // 节流
+    </script>
+</body>
+
+</html>
