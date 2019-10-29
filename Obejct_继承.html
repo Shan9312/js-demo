@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 构造函数定义： 我们描述一类对象 统一结构的函数，本质就是函数
+    // js中每个函数都有一个protoType指向它的原型，而构造函数创建的对象
+    // 都有一个_prop_指向原型
+    function Person(name,age){
+      this.name=name;
+      this.age=age;
+    };
+    Person.prototype={
+      add: function(){
+        console.log('这是我的原型方法');
+      },
+      sex: '女',
+    };
+    var person=new Person('shan',26);
+    console.dir(person); // 构造函数创造的对象
+    person.add(); // 构造函数的原型上的方法，可以继承过来用
+    // 原型的作用： 我们把公用的属性和方法 挂在在原型上。
+    // 案例
+    function Foo(){
+      this.val = 66;
+    };
+    // Foo的原型
+    Foo.prototype={
+      method:function() {}
+    };
+    function Bar(){};
+    // Bar的原型是 通过构造Foo函数的实例对象
+    Bar.prototype = new Foo();
+    // 在跟Bar的构造函数创建实例对象，因为Bar的原型对象是F00创建的，所以Bar可以引用Foo原型的方法
+    // test是Bar函数创造的实例，也可以在Bar的原型上获取方法
+    var test=new Bar();
+    console.dir(test);
+  </script>
+</body>
+</html>             

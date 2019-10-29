@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="ev">
+    目标元素
+  </div>
+  <!-- 事件代理 -->
+  <div>
+      <ul id='ulParent'>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+  </div>
+  <style>
+    #ev{
+      width: 500px;
+      height: 300px;
+      background-color: #f00;     
+      margin-bottom: 200px 
+    }
+    #ulParent{
+      cursor: pointer;
+      border:1px solid ;
+    }
+</style>
+</body>
+<script>
+  // dom 事件级：0,2,3  一般都用2级；
+  // addEventListener('click',function(){}, false);
+  // 第三个参数默认是false 表示：冒泡，从目标元素一层层冒泡到最外层的window
+  // 第三个参数若改为 true 表示： 捕获， 触发点击事件时，先是捕获window，=> document=>html 层层往下直到 => 目标元素
+  document.getElementById('ev').addEventListener('click',  function(){
+    console.log('我是目标元素');
+  },false);
+  window.addEventListener('click',function(){
+    console.log('Window layout');
+  },false);
+  document.addEventListener('click',function(){
+    console.log('doctype layout');
+  },false);
+  document.documentElement.addEventListener('click',function(){
+    console.log('html layout');
+  },false);
+  // 通过ul>li的例子，说明事件代理也是事件委托原理：是利用事件冒泡; 若利用dom0，给每个li绑定事件，是非常消耗内存的
+  // 则我们通过给父元素ul来绑定事件，执行事件的时候在判断子元素
+  document.getElementById('ulParent').addEventListener('click',function(e){
+      var that = e.target;
+      console.log(that);
+  });
+  // dom0的时候给每个元素绑定事件
+  const ul =document.getElementById('ulParent');
+  const arr = ul.getElementsByTagName('li'); // [li,li,li]
+  for(var i=0;i<arr.length;i++){
+    console.log(arr[i]);
+    arr[i].onClick=function(){
+      alert('oookkkk');
+    };
+  }
+</script>
+</html>
