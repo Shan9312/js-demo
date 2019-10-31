@@ -11,6 +11,6 @@
 // AMD： 使用requireJs 变形模块化。
 // 特点： 依赖必须提前声明好
 
-var exmple = require('./ADM.js');
+var exmple = require('./adm.js');
 console.log(exmple.add(10)); // 11
 console.log(exmple.valid('hss')); // true
