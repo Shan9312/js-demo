@@ -1,0 +1,15 @@
+{
+  "name": "js-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "String.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/Shan9312/Js-demo.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
