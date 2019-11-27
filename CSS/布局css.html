@@ -16,6 +16,7 @@
     
     .layout div {
         min-height: 100px;
+        margin-bottom: 30px;
     }
 </style>
 
@@ -25,8 +26,8 @@
         <div class="left"></div>
         <div class="right"></div>
         <div class="center">
-            <h1>浮动方法</h1>
-            三栏布局 三栏布局,三栏布局,三栏布局,三栏布局,三栏布局,
+            <h1>方法一：浮动方法</h1>
+            三栏布局 三栏布局,三栏布局,三栏布局,三栏布局,三栏布局, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis iusto deleniti blanditiis, eveniet velit magni fuga pariatur, sunt sed rerum debitis laudantium labore, autem ipsa illo iste! Numquam, tempore cumque?
         </div>
         <style>
             .layout.float .left {
@@ -50,14 +51,144 @@
     <section class="layout absolute">
         <div class="left"></div>
         <div class="center">
-            <h1>绝对定位</h1>
-            三栏布局 三栏布局,三栏布局,三栏布局,三栏布局,三栏布局,
+            <h1>方法二：绝对定位</h1>
+            三栏布局 三栏布局,三栏布局,三栏布局,三栏布局,三栏布局, Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque a libero aperiam autem labore quam, recusandae iure nobis necessitatibus placeat quis dignissimos omnis accusamus possimus repudiandae eveniet tempore maxime
+            impedit.
         </div>
         <div class="right"></div>
     </section>
-    <!-- table-cell -->
-    <!-- grid -->
+    <style>
+        .layout.absolute .left {
+            position: absolute;
+            left: 0;
+            background: red;
+            width: 300px;
+        }
+        
+        .layout.absolute .right {
+            position: absolute;
+            right: 0;
+            background: red;
+            width: 300px;
+        }
+        
+        .layout.absolute .center {
+            position: absolute;
+            background: yellow;
+            left: 300px;
+            right: 300px;
+        }
+    </style>
     <!-- flex -->
+    <section class="layout flex">
+        <div class="flex-box">
+            <div class="left"></div>
+            <div class="center">
+                <h1>方法三：FLex定位</h1>
+                三栏布局 三栏布局,三栏布局,三栏布局,三栏布局,三栏布局, Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque a libero aperiam autem labore quam, recusandae iure nobis necessitatibus placeat quis dignissimos omnis accusamus possimus repudiandae eveniet tempore maxime
+                impedit.
+            </div>
+            <div class="right"></div>
+        </div>
+    </section>
+    <style>
+        .layout.flex {
+            margin-top: 200px;
+        }
+        
+        .layout.flex .flex-box {
+            display: flex;
+        }
+        
+        .layout.flex .left {
+            width: 300px;
+            background: red;
+        }
+        
+        .layout.flex .right {
+            width: 300px;
+            background: red;
+        }
+        
+        .layout.flex .center {
+            flex: 1;
+            background: yellow;
+        }
+    </style>
+    <!-- table-cell -->
+    <section class="layout table">
+        <div class="table-box">
+            <div class="left"></div>
+            <div class="center">
+                <h1>方法四：table定位</h1>
+                三栏布局 三栏布局,三栏布局,三栏布局,三栏布局,三栏布局, Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque a libero aperiam autem labore quam, recusandae iure nobis necessitatibus placeat quis dignissimos omnis accusamus possimus repudiandae eveniet tempore maxime
+                impedit.
+            </div>
+            <div class="right"></div>
+
+        </div>
+    </section>
+    <style>
+        .layout.table .table-box {
+            display: table;
+            width: 100%;
+            height: 100px;
+        }
+        
+        .layout.table .table-box>div {
+            display: table-cell;
+        }
+        
+        .layout.table .left {
+            width: 300px;
+            background: red;
+        }
+        
+        .layout.table .right {
+            width: 300px;
+            background: red;
+        }
+        
+        .layout.table .center {
+            background: yellow;
+        }
+    </style>
+    <!-- grid -->
+    <section class="layout grid">
+        <div class="grid-box">
+            <div class="left"></div>
+            <div class="center">
+                <h1>方法五：grid定位</h1>
+                三栏布局 三栏布局,三栏布局,三栏布局,三栏布局,三栏布局, Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque a libero aperiam autem labore quam, recusandae iure nobis necessitatibus placeat quis dignissimos omnis accusamus possimus repudiandae eveniet tempore maxime
+                impedit.
+            </div>
+            <div class="right"></div>
+
+        </div>
+    </section>
+    <style>
+        .layout.grid .grid-box {
+            display: grid;
+            width: 100%;
+            grid-template-rows: 100px;
+            grid-template-columns: 300px auto 300px;
+        }
+        
+        .layout.grid .left {
+            width: 300px;
+            background: red;
+        }
+        
+        .layout.grid .right {
+            width: 300px;
+            background: red;
+        }
+        
+        .layout.grid .center {
+            background: yellow;
+        }
+    </style>
+
 </body>
 
 </html>

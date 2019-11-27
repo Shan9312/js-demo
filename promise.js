@@ -2,17 +2,17 @@
  * 1. 状态不会改变；pending 变为 fulfilled 和 pending 变为 rejected
  * 只要这两种情况发生，状态就凝固了，不会再变了
  * */
-// function timeout(ms) {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(resolve, ms, 'done');
-//   })
-// }
+function timeout(ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, ms, 'done');
+    })
+}
 
-// timeout(100).then((value) => {
-//   console.log(value + '执行成功了');
-// })
+timeout(100).then((value) => {
+    console.log(value + '执行成功了');
+})
 
-// console.log(timeout(100));
+console.log(timeout(100));
 
 /**
  * 2. promise的面试题
