@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
 </head>
 
@@ -27,12 +27,68 @@
             justify-content: space-between;
         }
     </style>
-    <div class="content">
-        <div class="lf"></div>
-        <div class="midle"></div>
-        <div class="rg"></div>
-    </div>
 
+    <div>
+        <!--  -->
+        <div class="content">
+            <div class="lf"></div>
+            <div class="midle"></div>
+            <div class="rg"></div>
+        </div>
+        <!-- flex test -->
+        <div class="box-flex">
+            <p class="box-left">left</p>
+            <p class="box-middle">content</p>
+            <p class="box-right">right</p>
+        </div>
+    </div>
+    <style>
+        /* 容器flex的属性 flex-direction
+                        flex-wrap
+                        flex-flow
+                        justify-content
+                        align-items
+                        align-content */
+        
+        .box-flex {
+            margin-top: 30px;
+            border: 1px solid green;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+        /* 项目item-flex的属性    order：顺序；int值，值越大越往后排，默认为0
+                            flex-grow: 放大n倍；int值，默认0， 为1时，等分将剩余空间占满 如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
+                            flex-shrink：缩小比例，默认为1，即如果空间不足，该项目将缩小
+                            flex-basis:在分配多余空间之前，项目占据的主轴空间
+                            flex: flex-grow flex-shrink flex-basis
+                            align-self */
+        
+        .box-flex>p {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        
+        .box-left {
+            order: 2;
+            flex: 1 1 auto;
+            /*flex-grow: 1 ;*/
+        }
+        
+        .box-right {
+            order: 1;
+            flex: 0 1 auto;
+            /*flex-grow: 1;*/
+        }
+        
+        .box-middle {
+            order: 0;
+            /*flex-grow: 2;*/
+            flex: 2 1 auto;
+        }
+    </style>
 </body>
 
 </html>
