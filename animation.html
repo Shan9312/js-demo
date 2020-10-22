@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <p class="line"></p>
+        <p class="line"></p>
+        <p class="line"></p>
+        <p class="line"></p>
+    </div>
+</body>
+
+<style>
+    .line {
+        width: 200px;
+        height: 10px;
+        background-color: #321229;
+        animation: rotate 1s ease-in-out 1ms 1 alternate forwards;
+        /* 动画name 1s内执行完 缓慢进入-激素出去  1ms之后在执行 执行1次 来回翻转运行 结束后保持动画结束的状态*/
+    }
+    
+    .aniate {
+        animation: rotate 1s ease-in-out 1ms 1 alternate forwards;
+    }
+    
+    @keyframes rotate {
+        0% {
+            transform: perspective(16rem) rotateX(-360deg);
+        }
+        100% {
+            transform: perspective(16rem) rotateX(0deg);
+        }
+    }
+</style>
+
+<script>
+</script>
+
+</html>
